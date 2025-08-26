@@ -2,3 +2,7 @@
 .font-hindMadurai {
     font-family: "Hind Madurai", sans-serif;
 }
+
+button {
+    cursor: pointer;
+}
