@@ -63,7 +63,7 @@ cardsParent.addEventListener("click", function (e) {
         // Challenge Part
         const number = target.parentNode.parentNode.childNodes[7].innerText;
         navigator.clipboard.writeText(number).then(() => {
-            console.log('text copied');
+            alert('Hotline Number Copied Successfully');
         }).catch(err => {
             console.log('an error occurred')
         } );
