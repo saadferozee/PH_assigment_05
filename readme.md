@@ -59,7 +59,7 @@ _____
 _example :_
 ```javascript
 const newElement = document.createElement('h1');
-const parentElement = document.getElementById('parent-div'):
+const parentElement = document.getElementById('parent-div');
 parentElement.appendChild(newElement);
 ```
 
@@ -125,7 +125,7 @@ _output :_
 
 ### Answer :
 
-###### Event Delegation is a system to shorten the process of taking action. First we have to know what is this, Event Delegation's `definition` is writing only one `eventListener()` to a parent element instead of writing on every child element. Its like talking with the school principal to introduce a new rule that applies to every student, every student who writes a 3-page assay about the school, they will get extra 5 marks in this subject. 
+###### Event Delegation is a system to shorten the process of taking action. Event Delegation's `definition` is writing only one `eventListener()` to a parent element instead of writing on every child element. Its like talking with the school principal to introduce a new rule that applies to every student, every student who writes a 3-page assay about the school, they will get extra 5 marks in this subject. 
 
 ###### If I, as a teacher, go to every student and check whether he wrote it or not, then add 5 marks.. It takes a decade to finish the process. It's like normal eventListener, it about adding `eventListener()` to every DOM element, every time the page loads, it loads all the code, its a bit slower, here comes the hero, `The Delegation`. The shorter process to take an action using a single listener. 
 
@@ -162,8 +162,41 @@ _output :_
 
 ### Answer :
 
+###### Both are used for Event Handling, but each method are used for different purposes. `preventDefault()` is use for preventing browser from performing its default behavior, and `stopPropagation()`is used to stop Event Bubbling.
 
+###### 1. `preventDefault()` is stop browsers default behavior, like when a `<button>` is placed inside a `<form>`, browser treats like a `submit button`, and when it is pressed, full page refreshes. To prevent this programmers use `preventDefault()` method.
 
+_example :_
+```HTML
+<form>
+    <input type="email"/>
+    <button>Join</button>
+</form>
+<script>
+    document.querySelector('button').addEventListener('click', function(e){
+        e.preventDefault(); // it stops reloading page on every click.
+    })
+</script>
+```
+###### 2. `stopPropagation()` is used to stop event bubbling. like stopping a chain reaction from spreading, we use `stopPropagation()` method.
+
+_example :_
+```HTML
+<div id="parent">
+    <div id="child">
+        <h1 id="text">hello</h1>
+    </div>
+</div>
+<script>
+    document.getElementById('child').addEventListener('click', function(e){
+        console.log('Child Div Clicked');
+        e.stopPropagation();
+    })
+    document.getElementById('parent').addEventListener('click', function(e){
+        console.log('Parent Div Clicked');
+    })
+</script>
+```
 
 -----
 -----
